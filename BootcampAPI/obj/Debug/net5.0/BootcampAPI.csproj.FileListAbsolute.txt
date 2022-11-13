@@ -196,11 +196,3 @@ C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\BootcampAPI.genr
 C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\ref\BootcampAPI.dll
 C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\bin\Debug\net5.0\BootcampAPI.Views.dll
 C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\bin\Debug\net5.0\BootcampAPI.Views.pdb
-C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\BootcampAPI.RazorAssemblyInfo.cache
-C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\BootcampAPI.RazorAssemblyInfo.cs
-C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\BootcampAPI.TagHelpers.input.cache
-C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\BootcampAPI.TagHelpers.output.cache
-C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\BootcampAPI.RazorCoreGenerate.cache
-C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\BootcampAPI.RazorTargetAssemblyInfo.cs
-C:\Users\Harun\Desktop\BootcampAPI\BootcampAPI\obj\Debug\net5.0\BootcampAPI.Views.pdb

@@ -3,14 +3,16 @@ using BootcampAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BootcampAPI.Migrations
 {
     [DbContext(typeof(DBFullStackContext))]
-    partial class DBFullStackContextModelSnapshot : ModelSnapshot
+    [Migration("20221112102510_deneme8")]
+    partial class deneme8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,13 +70,13 @@ namespace BootcampAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("PictureUri")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ProductBrand")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductPicture")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("ProductPrice")

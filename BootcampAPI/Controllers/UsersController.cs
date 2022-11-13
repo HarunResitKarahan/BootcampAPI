@@ -11,44 +11,44 @@ namespace BootcampAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AdminUsersController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly DBFullStackContext _context;
 
-        public AdminUsersController() => _context = new DBFullStackContext();
+        public UsersController() => _context = new DBFullStackContext();
 
-        // GET: api/AdminUsers
+        // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AdminUser>>> GetAdminUsers()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
-            return await _context.AdminUsers.ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
-        // GET: api/AdminUsers/5
+        // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<AdminUser>> GetAdminUser(string id)
+        public async Task<ActionResult<User>> GetUser(string id)
         {
-            var adminUser = await _context.AdminUsers.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
-            if (adminUser == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return adminUser;
+            return user;
         }
 
-        // PUT: api/AdminUsers/5
+        // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAdminUser(string id, AdminUser adminUser)
+        public async Task<IActionResult> PutUser(string id, User user)
         {
-            if (id != adminUser.AdminUserName)
+            if (id != user.UserLoginName)
             {
                 return BadRequest();
             }
 
-            _context.Entry(adminUser).State = EntityState.Modified;
+            _context.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace BootcampAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AdminUserExists(id))
+                if (!UserExists(id))
                 {
                     return NotFound();
                 }
@@ -69,21 +69,21 @@ namespace BootcampAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/AdminUsers
+        // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<AdminUser>> PostAdminUser(AdminUser adminUser)
+        public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.AdminUsers.Add(adminUser);
+            _context.Users.Add(user);
             try
             {
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
             {
-                if (AdminUserExists(adminUser.AdminUserName))
+                if (UserExists(user.UserLoginName))
                 {
-                    return Conflict();
+                    return Ok("Başka Kullanıcı Adı Belirleyiniz");
                 }
                 else
                 {
@@ -91,47 +91,48 @@ namespace BootcampAPI.Controllers
                 }
             }
 
-            return CreatedAtAction("GetAdminUser", new { id = adminUser.AdminUserName }, adminUser);
+            return CreatedAtAction("GetUser", new { id = user.UserLoginName }, user);
         }
 
         [HttpPost("CheckUser")]
-        public async Task<ActionResult<AdminUser>> CheckAdminUser(AdminUser adminUser)
+        public async Task<ActionResult<User>> CheckAdminUser(User User)
         {
             //Console.WriteLine(adminUser);
             //await _context.AdminUsers.ToListAsync();
-            var user = await _context.AdminUsers.FindAsync(adminUser.AdminUserName);
+            var user = await _context.Users.FindAsync(User.UserLoginName);
             if (user == null)
             {
                 return Ok("Kullanıcı Mevcut Değil");
             }
-            if (user.AdminUserPassword == adminUser.AdminUserPassword)
+            if (user.UserPassword == User.UserPassword)
             {
                 return Ok("Giriş Başarılı");
-            } else
+            }
+            else
             {
                 return Ok("Şifre Hatalı");
             }
         }
 
-        // DELETE: api/AdminUsers/5
+        // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteAdminUser(string id)
+        public async Task<IActionResult> DeleteUser(string id)
         {
-            var adminUser = await _context.AdminUsers.FindAsync(id);
-            if (adminUser == null)
+            var user = await _context.Users.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            _context.AdminUsers.Remove(adminUser);
+            _context.Users.Remove(user);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool AdminUserExists(string id)
+        private bool UserExists(string id)
         {
-            return _context.AdminUsers.Any(e => e.AdminUserName == id);
+            return _context.Users.Any(e => e.UserLoginName == id);
         }
     }
 }

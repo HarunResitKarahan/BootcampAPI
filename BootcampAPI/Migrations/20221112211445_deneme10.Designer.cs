@@ -3,14 +3,16 @@ using BootcampAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BootcampAPI.Migrations
 {
     [DbContext(typeof(DBFullStackContext))]
-    partial class DBFullStackContextModelSnapshot : ModelSnapshot
+    [Migration("20221112211445_deneme10")]
+    partial class deneme10
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

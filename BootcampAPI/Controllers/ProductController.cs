@@ -1,4 +1,5 @@
-﻿using BootcampAPI.Models;
+﻿using Bogus.DataSets;
+using BootcampAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
